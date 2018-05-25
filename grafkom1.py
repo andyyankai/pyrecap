@@ -12,7 +12,7 @@ class objItem(object):
         self.vertices = []
         self.faces = []
         self.coordinates = [0, 0, -65]  # [x,y,z]
-        self.teddy = graphics.ObjLoader("teddy.obj")
+        self.teddy = graphics.ObjLoader("male.obj")
         self.position = [0, 0, -50]
 
     def render_scene(self):
