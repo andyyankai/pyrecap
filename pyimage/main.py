@@ -3,15 +3,26 @@
 from PIL import Image
 from numpy import*
 
-temp=Image.open('test2.jpg')
-temp=temp.convert('1')      # Convert to black&white
-A = array(temp)             # Creates an array, white pixels==True and black pixels==False
-new_A=empty((A.shape[0],A.shape[1]),None)    #New array with same size as A
 
-for i in range(len(A)):
-    for j in range(len(A[i])):
-        if A[i][j]==True:
-            new_A[i][j]=0
-        else:
-            new_A[i][j]=1
-            
+def image2array(x):
+    temp=asarray(Image.open(x))
+    print(temp)
+    x=temp.shape[0]
+    y=temp.shape[1]*temp.shape[2]
+
+    temp.resize((x,y)) # a 2D array
+
+    return temp
+    
+def array2image(x):
+    img = Image.new('1', (64, 64))
+    #img.putdata(x)
+    img.save('out.jpg')
+    img.show()
+		    
+		    
+a = image2array('bigtest.jpg')
+array2image(a)
+print(size(a)/size(a[5])) # this is the height of the image, for bigtest is 642.0
+print(size(a[5])) # this is the width of the image, for bigtest is 4800
+print(size(a[1]))
