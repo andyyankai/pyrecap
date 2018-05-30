@@ -1,4 +1,8 @@
-img = cv2.imread('sudokusmall.png')
+import cv2
+import numpy as np
+from matplotlib import pyplot as plt
+
+img = cv2.imread('left_calib.jpg')
 rows,cols,ch = img.shape
 
 pts1 = np.float32([[56,65],[368,52],[28,387],[389,390]])
