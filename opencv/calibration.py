@@ -38,4 +38,4 @@ cv2.destroyAllWindows()
 
 print(objpoints)
 print(imgpoints)
-np.savetxt("objpoints.obj", (objpoints[0]), fmt="%d", newline='\nv ')
+np.savetxt("objpoints.obj", (objpoints[0]), fmt="%d")
