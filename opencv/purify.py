@@ -1,5 +1,6 @@
 from PIL import Image
 import numpy as np
+import glob
 
 
 def purify(filename):
@@ -18,3 +19,7 @@ def purify(filename):
 	imfile.save(str(filename)+"purify.jpg")
 	
 
+images = glob.glob('*.jpg')
+
+for fname in images:
+	purify(fname)
