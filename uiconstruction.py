@@ -2,7 +2,7 @@ import pygame
 from OpenGL.GL import *
 from OpenGL.GLU import *
 import math
-import grafkom1Framework as graphics
+import uiconstructionFramework as graphics
 
 
 class objItem(object):
@@ -12,7 +12,7 @@ class objItem(object):
         self.vertices = []
         self.faces = []
         self.coordinates = [0, 0, -65]  # [x,y,z]
-        self.teddy = graphics.ObjLoader("male.obj")
+        self.teddy = graphics.ObjLoader("square.obj")
         self.position = [0, 0, -50]
 
     def render_scene(self):
@@ -101,7 +101,7 @@ def main():
         objectTeddy.teddy.render_scene()
         pygame.display.flip()
         clock.tick(30)
-    pygame.quit()
+    #pygame.quit()
     
 if __name__ == '__main__':
     main()
