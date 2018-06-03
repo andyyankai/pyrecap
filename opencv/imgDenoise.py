@@ -7,7 +7,7 @@ import glob
 
 images = glob.glob('*.jpg')
 
-i=1
+i=0
 
 for fname in images:
 	img = cv2.imread(fname)
