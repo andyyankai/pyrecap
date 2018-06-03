@@ -16,7 +16,7 @@ def purify(filename):
 
 	# Now we put it back in Pillow/PIL land
 	imfile = Image.fromarray(bw)
-	imfile.save(str(filename)+"purify.jpg")
+	imfile.save("purify"+str(filename))
 	
 
 images = glob.glob('*.jpg')
