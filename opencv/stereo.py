@@ -2,8 +2,8 @@ import numpy as np
 import cv2
 from matplotlib import pyplot as plt
 
-imgL = cv2.imread('left_calib.jpg',0)
-imgR = cv2.imread('right_calib.jpg',0)
+imgL = cv2.imread('01.jpg',0)
+imgR = cv2.imread('02.jpg',0)
 
 stereo = cv2.StereoBM_create(numDisparities=16, blockSize=15)
 disparity = stereo.compute(imgL,imgR)
