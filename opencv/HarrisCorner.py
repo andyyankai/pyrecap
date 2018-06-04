@@ -12,16 +12,12 @@ def fuse(dd):
 	for i in dd:
 		save = True
 		for j in ret:
-			print(i)
-			print(j)
 			if abs(j[0]-i[0])<3 and abs(j[1]-i[1])<3:
 				save = False
 				break
-		
 		if save == True:
 			ret.append(i)
 		save = False
-
 	return ret
 
 
@@ -49,11 +45,9 @@ height, width, depth = img.shape
 for i in range(0, height):
     for j in range(0, int(width)):
     	if str(img[i,j]) != "[255 255 255]":
-        	imgpoints.append([i,j])
+        	imgpoints.append([i,j,0])
 
 a = fuse(imgpoints)
-print(imgpoints)
-#
 print(a)
 dst = cv2.dilate(dst,None)
 plt.imshow(img),plt.show()
