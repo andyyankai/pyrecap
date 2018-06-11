@@ -73,13 +73,10 @@ def sift(file1, file2):
 	for i in good:
 		location.append([i.trainIdx, i.queryIdx, i.distance])
 
-	print(location)
-	print(pts1)
-	print(pts2)
 	
 
-	plt.subplot(121),plt.imshow(img5)
+	'''plt.subplot(121),plt.imshow(img5)
 	plt.subplot(122),plt.imshow(img3)
-	plt.show()
+	plt.show()'''
 	return [pts1, pts2]
 

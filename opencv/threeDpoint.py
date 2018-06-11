@@ -30,7 +30,7 @@ def get3d(img1,img2):
 
 
 	fig = plt.figure()
-	ax = fig.add_subplot(111, projection='3d')
+	'''ax = fig.add_subplot(111, projection='3d')
 
 
 
@@ -42,5 +42,5 @@ def get3d(img1,img2):
 	ax.set_ylabel('Y Label')
 	ax.set_zlabel('Z Label')
 
-	plt.show()
+	plt.show()'''
 	return zip(x,y,z)
