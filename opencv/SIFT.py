@@ -3,9 +3,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def sift():
-	img1 = cv2.imread('01.png',0)  #queryimage # left image
-	img2 = cv2.imread('02.png',0) #trainimage # right image
+def sift(file1, file2):
+	img1 = cv2.imread(file1,0)  #queryimage # left image
+	img2 = cv2.imread(file2,0) #trainimage # right image
 
 	sift = cv2.xfeatures2d.SIFT_create()
 

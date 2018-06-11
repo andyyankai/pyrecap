@@ -7,8 +7,8 @@ import cv2
 
 
 
-def get3d():
-	data = SIFT.sift()
+def get3d(img1,img2):
+	data = SIFT.sift(img1,img2)
 
 	#cv2.triangulatePoints(projMatr1, projMatr2, data[0], data[1])
 
@@ -21,7 +21,10 @@ def get3d():
 	for i in range(0,len(data[0])):
 		x.append(data[0][i][0])
 		y.append(data[0][i][1])
-		z.append((abs(data[0][i][1]-data[1][i][1])*abs(data[0][i][1]-data[1][i][1])+abs(data[0][i][0]-data[1][i][0])*abs(data[0][i][0]-data[1][i][0]))/2)
+		if (abs(data[0][i][1]-data[1][i][1])*abs(data[0][i][1]-data[1][i][1])+abs(data[0][i][0]-data[1][i][0])*abs(data[0][i][0]-data[1][i][0]))/2 > 300:
+			z.append(0)
+		else:
+			z.append((abs(data[0][i][1]-data[1][i][1])*abs(data[0][i][1]-data[1][i][1])+abs(data[0][i][0]-data[1][i][0])*abs(data[0][i][0]-data[1][i][0]))/2)
 		
 
 
