@@ -74,10 +74,12 @@ def sift():
 		location.append([i.trainIdx, i.queryIdx, i.distance])
 
 	print(location)
+	print(pts1)
+	print(pts2)
 	
 
 	plt.subplot(121),plt.imshow(img5)
 	plt.subplot(122),plt.imshow(img3)
 	plt.show()
-	return location
+	return [pts1, pts2]
 
