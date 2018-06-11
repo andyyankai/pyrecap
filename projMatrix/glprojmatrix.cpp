@@ -155,6 +155,7 @@ int main(int argc, char **argv)
     ofs.write((char*)buffer, imageWidth * imageHeight);
     ofs.close();
     delete [] buffer;
+    std::cout << Mproj <<std::endl;
 
     return 0;
 }

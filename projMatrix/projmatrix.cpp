@@ -26,7 +26,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //[/ignore]
-
+#include <string.h>
 #include <cstdio>
 #include <cstdlib>
 #include <fstream>
@@ -118,6 +118,7 @@ int main(int argc, char **argv)
     ofs.write((char*)buffer, imageWidth * imageHeight);
     ofs.close();
     delete [] buffer;
+    std::cout << Mproj <<std::endl;
 
     return 0;
 }
