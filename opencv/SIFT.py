@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 
+
+
 img1 = cv2.imread('01.jpg',0)  #queryimage # left image
 img2 = cv2.imread('02.jpg',0) #trainimage # right image
 
@@ -64,12 +66,17 @@ img5,img6 = drawlines(img1,img2,lines1,pts1,pts2)
 lines2 = cv2.computeCorrespondEpilines(pts1.reshape(-1,1,2), 1,F)
 lines2 = lines2.reshape(-1,3)
 img3,img4 = drawlines(img2,img1,lines2,pts2,pts1)
-print(good)
-print(pts1)
-print(pts2)
+
+	
+location = []
+
+for i in good:
+	location.append([i.trainIdx, i.queryIdx, i.distance])
+
+print(location)
 
 
-plt.subplot(121),plt.imshow(img5)
-plt.subplot(122),plt.imshow(img3)
+#plt.subplot(121),plt.imshow(img5)
+#plt.subplot(122),plt.imshow(img3)
 plt.show()
 
