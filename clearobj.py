@@ -13,7 +13,6 @@ def cutF(fstr):
 f = open("tri.obj","r+")
 d = f.readlines()
 f.seek(0)
-count = 1
 for i in d:
     if i[0] == "v" and i[1] != "n":
         f.write(i)

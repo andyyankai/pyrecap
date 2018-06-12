@@ -1,39 +1,12 @@
 #Delaunay before
 import numpy as np
-
-
-'''def cutF(fstr):
-    a = 0
-    b = 0
-    rs = "f"
-    for i in range(0,len(fstr)):
-        if fstr[i] == " ":
-            a = i
-        if fstr[i] == "/" and fstr[i-1] != "/":
-            b = i
-            rs += fstr[a:b]
-    return rs
-
-f = open("triout.obj","r+")
-d = f.readlines()
-f.seek(0)
-count = 1
-for i in d:
-    if i[0] == "v":
-        f.write(str(i[:-1])+" #"+str(count)+"\n")
-        count += 1
-    else:
-        f.write(cutF(i)+"\n")
-
-f.truncate()
-f.close()'''
+import math
 
 def sqdist(p1,p2):
-    squared_dist = np.sum(p1**2 + p2**2, axis=0)
-    dist = np.sqrt(squared_dist)
+    dist = math.sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2+(p1[2]-p2[2])**2)
     return dist
 
-f = open("triout.obj","r")
+f = open("tri.obj","r")
 d = f.readlines()
 vdata = {}
 fdata = []
@@ -48,16 +21,35 @@ for i in d:
         fdata.append(str(i[2:]).split())
 
     count += 1
-
-
-print(vdata)
-print(fdata)
-
+f.close()
+f = open("tri.obj","r+")
+d = f.readlines()
+f.seek(0)
+count = 0
+deletelist = []
 for i in fdata:
-    print(vdata[i[1]])
-    print(vdata[i[2]])
-    print(sqdist(np.array(vdata[i[1]]), np.array(vdata[i[2]])))
+    if sqdist(np.array(vdata[i[0]]), np.array(vdata[i[1]])) > 30 or sqdist(np.array(vdata[i[0]]), np.array(vdata[i[2]])) > 30 or sqdist(np.array(vdata[i[1]]), np.array(vdata[i[2]])) > 30:
+        deletelist.append(count)
+        pass
+    count += 1
+    
+for i in reversed(deletelist):
+    del fdata[i]
 
 
+count = 0
+count2 = 0
+for i in d:
+    if i[0] == "v":
+        f.write(i)
+    elif i[0] == "f" and count < len(fdata):
+        f.write("f "+fdata[count][0]+" "+fdata[count][1]+" "+fdata[count][2]+"\n")
+        count += 1
+    elif i[0] == "\n":
+        pass
+    else:
+        break
 
+
+f.truncate()
 f.close()
