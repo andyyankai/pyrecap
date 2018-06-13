@@ -49,18 +49,12 @@ def collides(x1,y1,x2,y2,box):
 deletelist = []
 count = 1
 
-'''average = 0
-for i in vdata:
-    average += vdata[i][1]
-average = average/len(vdata)
-print(average)'''
-
 
 #delete bound
 bound = [644,39,16,957] #[left,right,top,bot]
 
 #delete box
-deletebox = [[200,200,400,400]]
+deletebox = [[267,773,340,949],[530,580,648,743],[4,537,132,670],[0,331,130,18]] #[sameple to cut feet[left, bot(-), right, top(-) "267,949,340,773"]
 
 for f in fdata:
     if vdata[f[0]][0] < bound[1] or vdata[f[0]][0] > bound[0] or vdata[f[0]][1] < bound[2] or vdata[f[0]][1] > bound[3] or vdata[f[1]][0] < bound[1] or vdata[f[1]][0] > bound[0] or vdata[f[1]][1] < bound[2] or vdata[f[1]][1] > bound[3] or vdata[f[2]][0] < bound[1] or vdata[f[2]][0] > bound[0] or vdata[f[2]][1] < bound[2] or vdata[f[2]][1] > bound[3]:
@@ -72,7 +66,6 @@ for f in fdata:
             else:
                 if collides(vdata[f[0]][0],vdata[f[0]][1],vdata[f[1]][0],vdata[f[1]][1],box) or collides(vdata[f[0]][0],vdata[f[0]][1],vdata[f[2]][0],vdata[f[2]][1],box) or collides(vdata[f[1]][0],vdata[f[1]][1],vdata[f[2]][0],vdata[f[2]][1],box):
                     deletelist.append(count)
-        
     count += 1
     
 
@@ -88,7 +81,7 @@ for i in reversed(deletelist):
 z = open("e.obj","w+")
 z.truncate()
 
-for count in range(1,len(vdata)):
+for count in range(0,len(vdata)):
     z.write("v "+str(vdata[str(count)][0])+" "+str(vdata[str(count)][1])+" "+str(vdata[str(count)][2])+"\n")
     
 for f in fdata:

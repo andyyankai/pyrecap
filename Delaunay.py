@@ -6,7 +6,7 @@ def sqdist(p1,p2):
     dist = math.sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2+(p1[2]-p2[2])**2)
     return dist
 
-f = open("tri.obj","r")
+f = open("e.obj","r")
 d = f.readlines()
 vdata = {}
 fdata = []
@@ -22,13 +22,15 @@ for i in d:
 
     count += 1
 f.close()
-f = open("tri.obj","r+")
+f = open("e.obj","r+")
 d = f.readlines()
 f.seek(0)
 count = 0
 deletelist = []
+print(len(vdata))
+print(vdata['22314'])
 for i in fdata:
-    if sqdist(np.array(vdata[i[0]]), np.array(vdata[i[1]])) > 30 or sqdist(np.array(vdata[i[0]]), np.array(vdata[i[2]])) > 30 or sqdist(np.array(vdata[i[1]]), np.array(vdata[i[2]])) > 30:
+    if sqdist(np.array(vdata[i[0]]), np.array(vdata[i[1]])) > 50 or sqdist(np.array(vdata[i[0]]), np.array(vdata[i[2]])) > 50 or sqdist(np.array(vdata[i[1]]), np.array(vdata[i[2]])) > 50:
         deletelist.append(count)
         pass
     count += 1
