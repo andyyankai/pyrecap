@@ -12,15 +12,19 @@ print(average)
 
 
 #delete bound
-rig = 857
-lef = 16
-bot = 39
-top = 644
+bound = [644,39,16,857]
 
 for f in fdata:
-    if vdata[f[0]][0] < bot or vdata[f[0]][0] > top or vdata[f[0]][1] < lef or vdata[f[0]][1] > rig or vdata[f[1]][0] < bot or vdata[f[1]][0] > top or vdata[f[1]][1] < lef or vdata[f[1]][1] > rig or vdata[f[2]][0] < bot or vdata[f[2]][0] > top or vdata[f[2]][1] < lef or vdata[f[2]][1] > rig:
+    if vdata[f[0]][0] < bound[1] or vdata[f[0]][0] > bound[0] or vdata[f[0]][1] < bound[2] or vdata[f[0]][1] > bound[3] or vdata[f[1]][0] < bound[1] or vdata[f[1]][0] > bound[0] or vdata[f[1]][1] < bound[2] or vdata[f[1]][1] > bound[3] or vdata[f[2]][0] < bound[1] or vdata[f[2]][0] > bound[0] or vdata[f[2]][1] < bound[2] or vdata[f[2]][1] > bound[3]:
         deletelist.append(count)
     count += 1
+    
+#delete box
+deletebox = [[100,200,300,500]]
+
+#two situation, one vertex in the box: easy!! no vertex in the box but a line in: emmmm...
+for box in deletebox:
+    
 
 
 
