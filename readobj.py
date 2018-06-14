@@ -8,7 +8,7 @@ def readdata(filename):
     fdata = []
     count = 1
     for i in d:
-        if i[0] == "v":
+        if i[0] == "v" and i[1] != "n":
             vdata[str(count)] = str(i[2:]).split()
             vdata[str(count)][0] = float(vdata[str(count)][0])
             vdata[str(count)][1] = float(vdata[str(count)][1])
