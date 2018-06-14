@@ -27,10 +27,8 @@ d = f.readlines()
 f.seek(0)
 count = 0
 deletelist = []
-print(len(vdata))
-print(vdata['22314'])
 for i in fdata:
-    if sqdist(np.array(vdata[i[0]]), np.array(vdata[i[1]])) > 50 or sqdist(np.array(vdata[i[0]]), np.array(vdata[i[2]])) > 50 or sqdist(np.array(vdata[i[1]]), np.array(vdata[i[2]])) > 50:
+    if sqdist(np.array(vdata[i[0]]), np.array(vdata[i[1]])) > 100 or sqdist(np.array(vdata[i[0]]), np.array(vdata[i[2]])) > 100 or sqdist(np.array(vdata[i[1]]), np.array(vdata[i[2]])) > 100:
         deletelist.append(count)
         pass
     count += 1
