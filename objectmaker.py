@@ -28,7 +28,7 @@ def run():
 	print("Loading data...", end="", flush=True)
 	for j in range(1,71):
 		print("%", end="", flush=True)
-		data = threeDpoint.get3d('./teddydata/'+str(j)+'.png', './teddydata/'+str(j+1)+'.png')
+		data = threeDpoint.get3d('./data/'+str(j)+'.png', './data/'+str(j+1)+'.png')
 		arrdata = np.asarray(list(data))
 		rotatedata = []
 		for i in arrdata:
