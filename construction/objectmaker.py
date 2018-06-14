@@ -87,7 +87,7 @@ def run():
 
 
 	np.savetxt("out.obj", mergedata, delimiter=' ', newline='\nv ')
-	return mergedata
+	#return mergedata
 
 	
 	

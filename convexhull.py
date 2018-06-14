@@ -97,9 +97,10 @@ class ConvexHull(object):
 def main():
     deletelist = []
     resultlist = []
+    tvdata, fdata = readobj.readdata("result.obj")
     for i in range(0,950,20):
     
-        vdata, fdata = readobj.readdata("e.obj")
+        vdata = tvdata
         ch = ConvexHull()
         for v in vdata: #0 to 840
             if vdata[v][1] == i:
@@ -108,8 +109,10 @@ def main():
         ch.get_hull_points()
         for rs in ch._hull_points:
             resultlist.append([rs[0],i,rs[1]])
-        print("Points on hull:", len(ch._hull_points))
+        
         #ch.display()
+        
+        
         ch.clear()
         
     outdata = {}
@@ -118,7 +121,7 @@ def main():
     
 
 
-    writeobj.writein("convexhull.obj",outdata,fdata)
+    writeobj.writein("convexhull.obj",outdata,[])
 
 
 if __name__ == '__main__':  

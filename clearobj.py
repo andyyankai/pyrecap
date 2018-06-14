@@ -10,7 +10,7 @@ def cutF(fstr):
             rs += fstr[a:b]
     return rs
 
-f = open("tri.obj","r+")
+f = open("result.obj","r+")
 d = f.readlines()
 f.seek(0)
 for i in d:

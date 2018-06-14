@@ -77,7 +77,7 @@ def sift(file1, file2):
 
 	'''plt.subplot(121),plt.imshow(img5)
 	plt.subplot(122),plt.imshow(img3)
-	plt.show()'''
-	cv2.destroyAllWindows()
+	plt.show()
+	cv2.destroyAllWindows()'''
 	return [pts1, pts2]
 
